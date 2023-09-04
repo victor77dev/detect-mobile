@@ -13,11 +13,13 @@ const detectMobile = async () => {
 
         addLog(highEntropyValues.mobile)
 
-        return highEntropyValues.mobile;
-    } else {
-        addLog(navigator.userAgent)
-        addLog(navigator.platform)
-
-        return /Mobi/.test(navigator.userAgent) || /Android/i.test(navigator.userAgent) || /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (highEntropyValues.mobile) {
+            return true;
+        }
     }
+    
+    addLog(navigator.userAgent)
+    addLog(navigator.platform)
+
+    return /Mobi/.test(navigator.userAgent) || /Android/i.test(navigator.userAgent) || /iPhone|iPad|iPod/i.test(navigator.userAgent);
 };
