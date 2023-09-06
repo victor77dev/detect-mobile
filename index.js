@@ -12,8 +12,10 @@ const detectMobile = async () => {
         const highEntropyValues = await navigator.userAgentData.getHighEntropyValues(['mobile']);
 
         addLog(highEntropyValues.mobile)
-
+    
         if (highEntropyValues.mobile) {
+            addLog(navigator.userAgent)
+            addLog(navigator.platform)
             return true;
         }
     }
